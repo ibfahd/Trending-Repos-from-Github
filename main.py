@@ -10,7 +10,6 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     uri = f"https://api.github.com/search/repositories?q=created:>{(datetime.today() + timedelta(days=-30)).date()}&per_page=100&sort=stars&order=desc"
-    print(uri)
     try:
         response = requests.get(uri)
     except requests.ConnectionError:
